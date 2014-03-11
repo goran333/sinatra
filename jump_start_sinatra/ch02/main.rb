@@ -1,33 +1,23 @@
+require 'sass'
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'slim'
+
+get('/styles.css'){ scss :styles }
 
 get '/' do
-  erb :home
+  slim :home
 end
 
-__END__
-@@home
-<% title="Songs by Sinatra" %>
-<!doctype html>
-<html lang="en">
-<head>
- <title><%= title %></title>
- <meta charset="utf-8">
-</head>
-<body>
- <header>
- <h1><%= title %></h1>
- <nav>
- <ul>
- <li><a href="/" title="Home">Home</a></li>
- <li><a href="/about" title="About">About</a></li>
- <li><a href="/contact" title="Contact">Contact</a></li>
- </ul>
- </nav>
- </header>
- <section>
- <p>Welcome to this website all about the songs of the great 
- Frank Sinatra</p>
- </section>
-</body>
-</html>
+get '/about' do
+  @title = "All About This Website"
+  slim :about
+end
+
+get '/contact' do
+  slim :contact
+end
+
+not_found do
+  slim :not_found
+end

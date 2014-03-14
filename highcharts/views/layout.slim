@@ -1,6 +1,9 @@
 doctype html
 html lang="en"
-head
-title== @title || "Simple Highchart Example"
-meta charset="utf-8"
-== yield
+  head
+    title== @title || "Simple Highchart Example"
+    meta charset="utf-8"
+    script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+    script type="text/javascript" src="http://code.highcharts.com/highcharts.js"
+  body
+    == yield

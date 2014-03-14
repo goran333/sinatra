@@ -11,10 +11,10 @@ get '/' do
 end
 
 def highchart_example
-  @chart = LazyHighCharts::HighChart.new('graph') do |f|
+  @chart = LazyHighCharts::HighChart.new('graph', :style => "height:600px;width:1200px;") do |f|
     f.title({ :text=>"Combination chart"})
     f.options[:xAxis][:categories] = ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
-    f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ]) 
+    f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px"} ]) 
     f.series(:type=> 'column',:name=> 'Jane',:data=> [3, 2, 1, 3, 4])
     f.series(:type=> 'column',:name=> 'John',:data=> [2, 3, 5, 7, 6])
     f.series(:type=> 'column', :name=> 'Joe',:data=> [4, 3, 3, 9, 0])

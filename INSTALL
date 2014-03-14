@@ -4,5 +4,7 @@ type rvm | head -n 1
 rvm list known
 rvm install 1.9.3
 rvm install 2.1.1
-rvm use 2.1.1
-gem install sinatra sinatra-contrib
+rvm --default use 2.1.1
+gem install sinatra sinatra-contrib slim sass
+gem install actionview --pre
+gem install lazy_high_charts
